@@ -15,10 +15,18 @@ Node-JS
 MongoDB
 ```
 ### Features
+
+Matchmaking
 ```
-Matchmaking queue - A matchmaking system that connects two users together with similar elos ( if available ) and redirects them into a game of Chess.
+A matchmaking system that connects two users together with similar elos ( if available ) and redirects them into a game of Chess.
+```
 
-Train - Play against the Stockfish Chess engine to train your skills and improve your game. Details of the engine's thought process are also provided for additional incite
+Practice
+```
+Play against the Stockfish Chess engine to train your skills and improve your game. Details of the engine's thought process are also provided for additional incite
+```
 
-Play a friend - Play against a friend by sending them a random alphanumeric randomly generated link to ensure you play together!
-``
+Play friends!
+```
+Play against a friend by sending them a random alphanumeric randomly generated link to ensure you play together
+```
