@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('common/header', {
+    page: {
+        title: 'playing!!'
+    },
+    css: []
+}); %>
+
+<body>
+
+
+
+    <%- include('common/nav'); %>
+    <%- include('game_common', {
+        game: {
+            orientation: 'white',
+            status: 'created'
+        },
+        error: null,
+        isOnline: false,
+        level: level
+    }); %>
+    <%- include('common/footer'); %>
+
+    <script src="/js/game_common.js"></script>
+    <script src="/js/game_local.js"></script>
+</body>
+
+</html>

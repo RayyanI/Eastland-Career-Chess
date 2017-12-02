@@ -1,0 +1,86 @@
+<div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="dataTables_length form-group" id="dataTables-example_length">
+                <label>Show</label>
+                <select id="per_page" class="form-control" style="display: inline-block; width: 60px;" name="dataTables-example_length" aria-controls="dataTables-example">
+                    <option value="10" <%= perPage === 10 ? 'selected' : ''%> >10</option>
+                    <option value="25" <%= perPage === 25 ? 'selected' : ''%> >25</option>
+                    <option value="50" <%= perPage === 50 ? 'selected' : ''%> >50</option>
+                    <option value="100" <%= perPage === 100 ? 'selected' : ''%> >100</option>
+                </select>
+                <label>entries</label>
+
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin: 0px 0px 0px 0px;">
+            <div id="dataTables-example_filter form-inline" class="dataTables_filter">
+                <div class="form-group">
+                    <label for="search_user">Search:</label>
+                    <input
+                        id="search_user" class="form-control" style="display: inline-block; max-width: 200px"
+                        type="search" placeholder="" aria-controls="dataTables-example"
+                        value="<%= searchText %>">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+                <thead>
+                    <tr role="row">
+                        <% if (showPosition) { %>
+                            <th style="text-align: center; width: 161px;" class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Position: activate to sort column descending">Position</th>
+                        <% } %>
+                        <th style="text-align: center; width: 433px;" class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending">Name</th>
+                        <th style="text-align: center; width: 252px;" class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Rating: activate to sort column ascending">Rating</th>
+                        <th style="text-align: center; width: 262px;" class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">Age</th>
+                        <th style="text-align: center; width: 268px;" class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Wins/Losses/Draws: activate to sort column ascending">Wins/Losses/Draws</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function (user, i) { %>
+                        <tr style="text-align: center;" class="gradeX odd" role="row">
+                            <% if (showPosition) { %>
+                                <td class="sorting_1"><%= startPosition + i + 1 %></td>
+                            <% } %>
+                            <td><%= user.local.firstName + ' ' + user.local.lastName %></td>
+                            <td><%= user.local.rank.rating %></td>
+                            <td>
+                                <% if (user.local.birthday) {%>
+                                    <%= (new Date()).getFullYear() - user.local.birthday.year %>
+                                <% } else { %>
+                                    N/A
+                                <% } %>
+                            </td>
+                            <td>
+                                <%= user.local.score.wins %> /
+                                <%= user.local.score.losses %> /
+                                <%= user.local.score.draws %>
+                            </td>
+                        </tr>
+                    <% })%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">Showing <%= startPosition + 1 %> to <%= endPosition + 1 %> of <%= totalCount %> entries</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate" style="margin-left: 50%">
+            <ul class="pagination" style="transform: translateX(-50%)">
+                <li class="paginate_button previous <%= pageNum === 1 ? 'disabled' : '' %>" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li>
+                <% pages.forEach(function (n) { %>
+                    <li class="paginate_button <%= pageNum === n ? 'active' : '' %>" aria-controls="dataTables-example" tabindex="0">
+                        <a href="/leaderboards/<%= perPage %>/<%= n %>"><%= n %></a>
+                    </li>
+                <% }) %>
+                <li class="paginate_button next <%= pageNum === totalPage ? 'disabled' : '' %>" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

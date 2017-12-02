@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('common/header', {page: {title: 'playing!!'}}); %>
+
+<body>
+    <%- include('common/nav'); %>
+    <div class="play-background">
+        <div class="container play">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Game Link </h3></div>
+                        <div class="panel-body">Game Link:<span id="gameurl"></span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div id="board" style="width: 400px style=" margin: 0px 1px 0px 1px; ""></div>
+                    <br>
+                    <br>
+                    <span style="margin: 0px 170px 0px 170px;">
+                        <input class="btn btn-success" type="button" id="startBtn" value="Offer Draw" />
+                        <input class="btn btn-danger" type="button" id="clearBtn" value="Resign" />
+                    </span>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Jaise, you are playing Rayyan</h3></div>
+                        <div class="panel-body"><span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.&nbsp; </span></div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">PGN Moves</h3></div>
+                        <div class="panel-body"><span>It is a long established fact that a reader will be distracted by the readable content of a page t look like readable English.&nbsp; </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('common/footer'); %>
+    <script src="/js/game_online.js"></script>
+</body>
+
+</html>

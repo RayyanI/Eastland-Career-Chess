@@ -1,0 +1,102 @@
+<div class="play-background">
+    <% if (error) { %>
+        <h2><%= error %></h2>
+    <% } else { %>
+        <div class="container play">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="game_status">
+                            <h3 class="panel-title">Game Status </h3></div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Game Link </h3></div>
+                        <div class="panel-body">Game Link:<span id="gameurl" style="margin-left: 10px; word-break: break-all;"></span></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div
+                        id="board"
+                        data-pgn="<%= game.pgn %>"
+                        data-orientation="<%= game.orientation %>"
+                        data-status="<%= game.status %>"
+                        data-username="<%= user.local.email %>"
+                    ></div>
+                    <br>
+                    <br>
+                    <span style="margin: 0px 170px 0px 170px;">
+                        <input class="btn btn-success" type="button" id="startBtn" value="Offer Draw" />
+                        <input class="btn btn-danger" type="button" id="clearBtn" value="Resign" />
+                    </span>
+                </div>
+
+                <div class="col-md-3">
+                    <% if (isOnline) { %>
+                        <div id='component_info' class="panel panel-default" style='display: none'>
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span id='player1_name'><%= user.local.firstName || user.local.email %></span>,
+                                    <span>you are playing</span>
+                                    <span id='player2_name'></span>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="opponent-info">
+                                    <li>
+                                        <label>Opponent:</label>
+                                        <span id='opponent_fullname'></span>
+                                    </li>
+                                    <li>
+                                        <label>Rank:</label>
+                                        <span id='opponent_rank'></span>
+                                    </li>
+                                    <li>
+                                        <label>Wins:</label>
+                                        <span id='opponent_wins'></span>
+                                    </li>
+                                    <li>
+                                        <label>Losses:</label>
+                                        <span id='opponent_losses'></span>
+                                    </li>
+                                    <li>
+                                        <label>Draws:</label>
+                                        <span id='opponent_draws'></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div id='component_info' class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" style="font-size: 15px; line-height: 17px;">
+                                    <%= user.local.firstName || user.local.email %>,
+                                    you're playing Lv.<%= level %> AI
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <h5>AI is talking:</h5>
+                                <ul id="ai_output" style="padding-left: 15px; max-height: 120px; overflow-y: scroll;">
+                                    <li>Hello Ya!</li>
+                                </ul>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">PGN Moves</h3></div>
+                        <div class="panel-body">
+                            <div class="pgn-container">
+                                <span id="game_pgn"></span>
+                            </div>
+                            <a download="pgn.txt" href="#" id="pgn_download" class="btn btn-success pgn-download">Download PGN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

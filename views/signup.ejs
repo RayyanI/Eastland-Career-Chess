@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<%- include('common/header', {
+    page: {
+        title: 'Sign Up'
+    },
+    css: [
+        '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
+    ]
+}); %>
+
+<body>
+
+<%- include('common/nav', {user: null}); %>
+
+    <div class="container"  style="min-height: 500px; padding-top: 50px;">
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <h1><span class="fa fa-sign-in"></span> Chess  Signup</h1>
+
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+
+            <!-- LOGIN FORM -->
+            <form action="/signup" method="post">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" name="firstName">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label>Birthday</label>
+                    <div class="form-group form-inline">
+                        <select name="birthYear" class="form-control">
+                            <% years.forEach(function (year) { %>
+                                <option value="<%= year %>"><%= year %></option>
+                            <% }) %>
+                        </select>
+
+                        <select name="birthMonth" class="form-control">
+                            <% months.forEach(function (month, i) { %>
+                                <option value="<%= i + 1 %>"><%= month %></option>
+                            <% }) %>
+                        </select>
+
+                        <select name="birthDate"  class="form-control">
+                            <% dates.forEach(function (date) { %>
+                                <option value="<%= date %>"><%= date %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+            </form>
+
+            <hr>
+
+            <p>Already have an account? <a href="/login">Login</a><br/><br/></p>
+        </div>
+    </div>
+
+    <%- include('common/footer'); %>
+
+</body>
+</html>

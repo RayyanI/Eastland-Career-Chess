@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('common/header', {
+    page: {
+        title: 'playing!!'
+    },
+    css: [
+        '/css/game_online.css'
+    ]
+}); %>
+
+<body>
+    <%- include('common/nav'); %>
+    <%- include('game_common', {
+        game: game,
+        error: error,
+        isOnline: true,
+    }); %>
+    <%- include('common/footer'); %>
+
+    <script src="/js/game_common.js"></script>
+    <script src="/js/game_online.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('common/header', {page: {title: 'Leaderboard'}, css: []}); %>
+
+<body>
+
+    <%- include('common/nav'); %>
+
+    <div class="row main-background" style="padding: 100px;">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span style="color: #FFF; font-weight: bold;">Search Result</span>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="dataTables-example_wrapper" class="dataTables_wrapper dt-bootstrap no-footer">
+                    <%- include('widgets/user_list', {
+                        users: users,
+                        totalCount: totalCount,
+                        totalPage: totalPage,
+                        perPage: perPage,
+                        pageNum: pageNum,
+                        pages: pages,
+                        startPosition: startPosition,
+                        endPosition: endPosition,
+                        searchText: searchText,
+                        showPosition: showPosition
+                    }) %>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+<%- include('common/footer'); %>
+
+<script src="/js/user_list.js"></script>
+
+</body>
+
+</html>

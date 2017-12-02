@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('common/header', {
+    page: {
+        title: 'Eastland Career Center'
+    },
+    css: ['/assets/css/slider.css']
+}); %>
+
+<body>
+
+    <%- include('common/nav'); %>
+
+    <div class="main-background">
+        <div class="container main" id="main_container" data-username="<%= user.local.email %>">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Statistics </h3></div>
+                        <div class="panel-body">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+<p><strong>Active Games: </strong><%= activeGameCount %></p>
+<p><strong>Total Online: </strong><%= activePlayerCount %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Main Panel -->
+<div class="panel panel-primary">
+    <!-- Panel Heading-->
+    <div class="panel-heading">
+        <h3 class="panel-title">Game Modes</h3>
+    </div>
+    <!--/ Panel Heading-->
+    <div class="panel-body"> <!-- Panel Body-->
+
+            <br /><a id="myBtn1" class="btn btn-danger btn-lg center-block" href="#">Play solo</a>
+            <br />
+
+            <!-- Modal1 content -->
+            <div id="myModal1" class="modal">
+
+
+  <div class="modal-content" style="margin: 0 auto; text-align: center;">
+    <span id="close1" class="close">&times;</span>
+      <p><strong>You have been placed into the queue.</strong></p>
+      <img src="assets/img/InternetSlowdown_Day.gif" alt="Loading" width="200" height="150" />
+  </div>
+
+</div>
+             <!-- / Modal1 content -->
+
+        <a id="myBtn2" class="btn btn-danger btn-lg center-block" href="#">Play with friend</a>
+            <br />
+         <!-- Modal2 content -->
+            <div id="myModal2" class="modal">
+
+
+  <div class="modal-content" style="margin: 0 auto; text-align: center;">
+    <span id="close2" class="close">&times;</span>
+      <h2>Game Link: </h2>
+      <p> <a href="http://localhost:3000/profile?gameId=e2d0466c7aca0f47dc0c">http://localhost:3000/profile?gameId=e2d0466c7aca0f47dc0c </a> </p>
+
+  </div>
+
+</div>
+         <!-- / Modal2 content -->
+       <a id="myBtn3" class="btn btn-danger btn-lg center-block" href="#">Train/Computer</a>
+            <br />
+       <!-- Modal3 content -->
+        <div id="myModal3" class="modal">
+
+
+  <div class="modal-content" style="margin: 0 auto; text-align: center;">
+    <span id="close3" class="close">&times;</span>
+    <div id="dlevel">
+    <h2>Difficulty Level</h2>
+        <output></output>
+    <input type="range" min="1" max="20" value="1" data-rangeSlider id="ai_level"><br>
+<a id="myBtn4" class="btn btn-success center-block" href="#">Play</a>
+
+</div>
+            </div>
+
+</div> <!-- / Modal3 content -->
+
+    </div> <!--/ Main Panel Body -->
+</div>  <!--/ Main Panel -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('common/footer'); %>
+
+    <script src="/assets/js/custom.js"></script>
+</body>
+
+</html>

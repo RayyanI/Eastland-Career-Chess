@@ -1,0 +1,17 @@
+
+.opponent-info {
+    list-style: none;
+    padding-left: 0;
+}
+
+.opponent-info li {
+    margin-bottom: 10px;
+}
+
+.opponent-info label {
+    display: inline-block;
+    margin: 0;
+    padding-right: 15px;
+    min-width: 85px;
+    color: #666;
+}
