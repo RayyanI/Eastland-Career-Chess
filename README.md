@@ -9,9 +9,9 @@
 #
 */
 
-implementation notes:
 
-There should be three options inside of the game:
+
+Features
 
   1 --> Play Random
   The requesting user should have his unique identifier recorded and be added to the lobby queue. Once an opponent has been found
@@ -30,5 +30,4 @@ There should be three options inside of the game:
 
 
 
-NOTE: An important thing to note is that this does not include the implementation of Glicko-2 which will be used to calculate the relative
-skill levels of the players on the system.
+
