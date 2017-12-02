@@ -1,7 +1,7 @@
 # Web based multiplayer Chess for the Eastland Career Center
 A multiplayer chess system designed for a club at the school. This application allows users to play chess in real time against one-another with rankings in the form of (W/L/ELO) being calculated for each user. Training features also exist
 
-## Steps.
+## Installation
 ```
 Change the database settings at config/database.js
 npm install
